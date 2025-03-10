@@ -89,6 +89,13 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
+
+            // Get the SurfaceEffector2D from the surface we're currently on
+            SurfaceEffector2D newSurfaceEffector = collision.gameObject.GetComponent<SurfaceEffector2D>();
+            if (newSurfaceEffector != null)
+            {
+                surfaceEffector2D = newSurfaceEffector;
+            }
         }
     }
 }
