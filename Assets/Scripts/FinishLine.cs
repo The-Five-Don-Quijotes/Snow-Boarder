@@ -20,6 +20,8 @@ public class FinishLine : MonoBehaviour
 
     void ReloadScene()
     {
-        SceneManager.LoadScene(0);
+        FindFirstObjectByType<SceneTransition>().LoadScene("Finish");
+
+        //SceneManager.LoadScene(2);
     }
 }

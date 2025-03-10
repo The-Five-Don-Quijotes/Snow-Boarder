@@ -1,7 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class CrashDetector : MonoBehaviour
 {
@@ -27,11 +27,13 @@ public class CrashDetector : MonoBehaviour
         FindAnyObjectByType<PlayerController>().DisableControls();
         crashEffect.Play();
         GetComponent<AudioSource>().PlayOneShot(crashSFX);
-        Invoke("ReloadScene", loadDelay);
+        Invoke("LoadTryAgainScene", loadDelay);
     }
 
-    void ReloadScene()
+    void LoadTryAgainScene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        FindFirstObjectByType<SceneTransition>().LoadScene("TryAgain");
+
+        //SceneManager.LoadScene("TryAgain"); // Loads the "Try Again" scene
     }
 }
