@@ -130,6 +130,8 @@ public class PlayerController : MonoBehaviour
             {
                 surfaceEffector2D = newSurfaceEffector;
             }
+
+            
         }
     }
 
@@ -139,5 +141,6 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = false; // Properly track when the player leaves the ground
         }
+
     }
 }

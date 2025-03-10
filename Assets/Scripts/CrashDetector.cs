@@ -17,6 +17,11 @@ public class CrashDetector : MonoBehaviour
 
         if (other.CompareTag("Ground") || other.CompareTag("Spike"))
         {
+            GameTimer timer = UnityEngine.Object.FindFirstObjectByType<GameTimer>();
+            if (timer != null)
+            {
+                timer.StopTimer();
+            }
             Crash();
         }
     }
