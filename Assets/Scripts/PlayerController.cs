@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        surfaceEffector2D = FindObjectOfType<SurfaceEffector2D>();
+        surfaceEffector2D = FindFirstObjectByType<SurfaceEffector2D>();
 
         // Ensure we have an Animator and avoid null reference error
         animator = GetComponent<Animator>();
