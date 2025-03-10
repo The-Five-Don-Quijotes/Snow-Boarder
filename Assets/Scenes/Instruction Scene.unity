@@ -289,8 +289,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -441.12, y: -218.35}
-  m_SizeDelta: {x: 16.5464, y: 29.813}
+  m_AnchoredPosition: {x: -441.26013, y: -218.33923}
+  m_SizeDelta: {x: 16.2662, y: 29.7914}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &778475546
 MonoBehaviour:
@@ -312,7 +312,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Instruction
+  m_text: "Instruction\n Left Arrow / A \u2013 Turn Left\nRight Arrow / D \u2013
+    Turn Right\nUp Arrow / W \u2013 Increase Speed\nDown Arrow / S \u2013 Decrease
+    Speed\nSpacebar \u2013 Jump (Use for ramps and tricks)\nShift \u2013 Perform
+    Tricks in the Air"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -339,8 +342,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 1
-  m_fontSizeBase: 1
+  m_fontSize: 0.85
+  m_fontSizeBase: 0.85
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -495,7 +498,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -433.5363, y: -235.59633}
+  m_AnchoredPosition: {x: -433.52, y: -235.57}
   m_SizeDelta: {x: 4.8562, y: 1.6311}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1704054416
@@ -828,8 +831,8 @@ Transform:
   m_GameObject: {fileID: 2142755030}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -440.5495, y: -231.6583, z: 0}
-  m_LocalScale: {x: 0.48035, y: 0.37917998, z: 1}
+  m_LocalPosition: {x: -440.2745, y: -231.6626, z: 0}
+  m_LocalScale: {x: 0.46650833, y: 0.37950256, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2067996943}
