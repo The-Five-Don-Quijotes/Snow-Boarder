@@ -18885,7 +18885,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba20503f9cdc2434fa48f62af5b4385f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 0}
+  scoreText: {fileID: 546518759}
   audioSource: {fileID: 1217167025}
   scoreGainSound: {fileID: 8300000, guid: 2a8fd16697f934b4b9e063a7ebfb6392, type: 3}
 --- !u!82 &1217167025
@@ -26864,7 +26864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c072c3649390aa746997c2635c290550, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  torqueAmount: 30
+  torqueAmount: 40
   boostSpeed: 40
   baseSpeed: 20
   jumpForce: 10

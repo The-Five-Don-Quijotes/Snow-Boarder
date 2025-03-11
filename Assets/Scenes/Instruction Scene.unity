@@ -574,10 +574,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Instruction\n Left Arrow / A \u2013 Turn Left\nRight Arrow / D \u2013
-    Turn Right\nUp Arrow / W \u2013 Increase Speed\nDown Arrow / S \u2013 Decrease
-    Speed\nSpacebar \u2013 Jump (Use for ramps and tricks)\nShift \u2013 Perform
-    Tricks in the Air"
+  m_text: "Instruction\nLeft Arrow / A \u2013 Turn Left\nRight Arrow / D \u2013 Turn
+    Right\nUp Arrow / W \u2013 Increase Speed\nDown Arrow / S \u2013 Decrease Speed\nSpacebar
+    \u2013 Jump (Use for ramps and tricks)\nShift \u2013 Perform Tricks in the Air"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

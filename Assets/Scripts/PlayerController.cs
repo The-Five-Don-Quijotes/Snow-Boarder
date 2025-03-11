@@ -6,8 +6,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] float torqueAmount = 0.1f;
-    [SerializeField] float boostSpeed = 30f;
-    [SerializeField] float baseSpeed = 20f;
+    [SerializeField]public float boostSpeed = 30f;
+    [SerializeField]public float baseSpeed = 20f;
     [SerializeField] float jumpForce = 10f; // Jump force amount
 
     Rigidbody2D rb2d;
@@ -40,17 +40,24 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void Update()
+    private void Update()
     {
         if (canMove)
         {
-            RotatePlayer();
-            RespondToBoost();
             Jump();
+        }
+    }
+
+    void FixedUpdate()
+    {
+        if (canMove)
+        {
+            RespondToBoost();
         }
 
         if (!isGrounded)
         {
+            RotatePlayer();
             TrackRotation();
         }
     }
@@ -130,8 +137,6 @@ public class PlayerController : MonoBehaviour
             {
                 surfaceEffector2D = newSurfaceEffector;
             }
-
-            
         }
     }
 
