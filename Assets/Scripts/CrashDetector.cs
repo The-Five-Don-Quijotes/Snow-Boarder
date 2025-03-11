@@ -1,7 +1,4 @@
-using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.SocialPlatforms.Impl;
 
 public class CrashDetector : MonoBehaviour
 {
@@ -21,14 +18,6 @@ public class CrashDetector : MonoBehaviour
             timer?.StopTimer();
 
             PlayerController player = FindAnyObjectByType<PlayerController>();
-            player.DisableControls();
-            // Set player base speed and boost to 0
-            player.baseSpeed = 0f; 
-            player.boostSpeed = 0f;
-            // Stop surface effector movement
-            SurfaceEffector2D surfaceEffector = FindAnyObjectByType<SurfaceEffector2D>();
-            surfaceEffector.speed = 0f; // Stop the player�s movement
-
             SceneTransition transition = FindFirstObjectByType<SceneTransition>();
             if (transition == null)
             {

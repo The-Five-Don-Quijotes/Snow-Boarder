@@ -6,9 +6,10 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] float torqueAmount = 0.1f;
-    [SerializeField]public float boostSpeed = 30f;
-    [SerializeField]public float baseSpeed = 20f;
+    [SerializeField] float boostSpeed = 30f;
+    [SerializeField] float baseSpeed = 20f;
     [SerializeField] float jumpForce = 10f; // Jump force amount
+    [SerializeField] float gravityForce = 9.8f; // Custom gravity
 
     Rigidbody2D rb2d;
     SurfaceEffector2D surfaceEffector2D;
@@ -50,9 +51,10 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        ApplyCustomGravity();
         if (canMove)
         {
-            RespondToBoost();
+            AdjustSpeed(); // Unified speed control
         }
 
         if (!isGrounded)
@@ -62,22 +64,51 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void AdjustSpeed()
+    {
+        if (surfaceEffector2D == null) return;
+
+        float slopeModifier = GetSlopeModifier();
+
+        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
+        {
+            surfaceEffector2D.speed = boostSpeed * slopeModifier;
+        }
+        else
+        {
+            surfaceEffector2D.speed = baseSpeed * slopeModifier;
+        }
+    }
+
+    float GetSlopeModifier()
+    {
+        Vector2 surfaceNormal = surfaceEffector2D.transform.up;
+        float slopeAngle = Vector2.Angle(surfaceNormal, Vector2.up);
+
+        return Mathf.Clamp(Mathf.Cos(slopeAngle * Mathf.Deg2Rad), 0.5f, 1.5f);
+    }
+
+    void ApplyCustomGravity()
+    {
+        rb2d.AddForce(Vector2.down * gravityForce, ForceMode2D.Force);
+    }
+
     public void DisableControls()
     {
         canMove = false;
     }
 
-    void RespondToBoost()
-    {
-        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
-        {
-            surfaceEffector2D.speed = boostSpeed;
-        }
-        else
-        {
-            surfaceEffector2D.speed = baseSpeed;
-        }
-    }
+    //void RespondToBoost()
+    //{
+    //    if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
+    //    {
+    //        surfaceEffector2D.speed = boostSpeed;
+    //    }
+    //    else
+    //    {
+    //        surfaceEffector2D.speed = baseSpeed;
+    //    }
+    //}
 
     void RotatePlayer()
     {
