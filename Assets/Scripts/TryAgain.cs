@@ -2,9 +2,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class TryAgain : MonoBehaviour
-{
-    public void ReloadScene()
+{   public void StartGame()
     {
-        SceneManager.LoadScene(0); // Loads the first scene (Scene 0)
+        Debug.Log("Start game");
+        SceneManager.LoadScene("Level1");
+    }
+
+    public void MenuScene()
+    {
+        SceneManager.LoadScene("Menu Scene");
     }
 }
