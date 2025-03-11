@@ -8282,7 +8282,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -501.31, y: -166.79}
+  m_AnchoredPosition: {x: -495.08, y: -166.79}
   m_SizeDelta: {x: 10.7698, y: 2.3032}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &546518759
@@ -26864,7 +26864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c072c3649390aa746997c2635c290550, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  torqueAmount: 10
+  torqueAmount: 30
   boostSpeed: 40
   baseSpeed: 20
   jumpForce: 10
