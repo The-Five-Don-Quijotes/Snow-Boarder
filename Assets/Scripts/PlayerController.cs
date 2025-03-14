@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     bool isCountingRotation = false;
     CalculateScore scoreManager; // Reference to score manager
     public int bonusPoint = 100;
+    Vector2 currentSurfaceNormal = Vector2.up;
 
     void Start()
     {
@@ -64,28 +65,41 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    float GetSlopeModifier()
+    {
+        float slopeAngle = Vector2.Angle(currentSurfaceNormal, Vector2.up);
+        Debug.Log("Slope: " + slopeAngle);
+
+        if (slopeAngle > 35f) // Assuming slopes over 45 degrees are too steep
+        {
+            return -1f; // Signal sliding backward
+        }
+
+        return Mathf.Clamp(Mathf.Cos(slopeAngle * Mathf.Deg2Rad), 0.5f, 1.5f);
+    }
+
     void AdjustSpeed()
     {
         if (surfaceEffector2D == null) return;
 
         float slopeModifier = GetSlopeModifier();
 
-        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
+        if (slopeModifier < 0f)
         {
-            surfaceEffector2D.speed = boostSpeed * slopeModifier;
+            // Apply a consistent sliding-back force when the slope is too steep
+            rb2d.AddForce(Vector2.left * baseSpeed, ForceMode2D.Force);
         }
         else
         {
-            surfaceEffector2D.speed = baseSpeed * slopeModifier;
+            if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
+            {
+                surfaceEffector2D.speed = boostSpeed * slopeModifier;
+            }
+            else
+            {
+                surfaceEffector2D.speed = baseSpeed * slopeModifier;
+            }
         }
-    }
-
-    float GetSlopeModifier()
-    {
-        Vector2 surfaceNormal = surfaceEffector2D.transform.up;
-        float slopeAngle = Vector2.Angle(surfaceNormal, Vector2.up);
-
-        return Mathf.Clamp(Mathf.Cos(slopeAngle * Mathf.Deg2Rad), 0.5f, 1.5f);
     }
 
     void ApplyCustomGravity()
@@ -162,6 +176,8 @@ public class PlayerController : MonoBehaviour
             isGrounded = true;
             isCountingRotation = false;
             totalRotation = 0f; // Reset when landing
+
+            currentSurfaceNormal = collision.contacts[0].normal;
 
             SurfaceEffector2D newSurfaceEffector = collision.gameObject.GetComponent<SurfaceEffector2D>();
             if (newSurfaceEffector != null)
