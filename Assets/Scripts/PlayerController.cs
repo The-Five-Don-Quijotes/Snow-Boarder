@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] float torqueAmount = 0.1f;
+    [SerializeField] float torqueAmount = 45f;
     [SerializeField] float boostSpeed = 30f;
     [SerializeField] float baseSpeed = 20f;
     [SerializeField] float jumpForce = 15f; // Jump force amount
