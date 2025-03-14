@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float torqueAmount = 0.1f;
     [SerializeField] float boostSpeed = 30f;
     [SerializeField] float baseSpeed = 20f;
-    [SerializeField] float jumpForce = 10f; // Jump force amount
+    [SerializeField] float jumpForce = 15f; // Jump force amount
     [SerializeField] float gravityForce = 9.8f; // Custom gravity
 
     Rigidbody2D rb2d;
